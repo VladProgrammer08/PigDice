@@ -1,6 +1,6 @@
 function generateRandomValue(minValue, maxValue) {
     var random = Math.random();
-    return random;
+    return Math.floor(random * (maxValue - minValue + 1) + minValue);
 }
 function changePlayers() {
     let currentPlayerName = document.getElementById("current").innerText;
