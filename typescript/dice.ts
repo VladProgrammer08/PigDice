@@ -12,7 +12,17 @@ function changePlayers():void{
     let player2Name = (<HTMLInputElement>document.getElementById("player2")).value;
 
     //swap from player to player by comparing current name to player names
-    //set currentPlayerName to the next player
+    if (currentPlayerName == player1Name) {
+        //set currentPlayerName to player 2
+        currentPlayerName = player2Name;
+    }
+    else {
+        //set currentPlayerName to player 1
+        currentPlayerName = player1Name;
+    }
+
+    (<HTMLElement>document.getElementById("current")).innerText = currentPlayerName;
+
 }
 
 window.onload = function(){

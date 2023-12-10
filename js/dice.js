@@ -6,6 +6,13 @@ function changePlayers() {
     let currentPlayerName = document.getElementById("current").innerText;
     let player1Name = document.getElementById("player1").value;
     let player2Name = document.getElementById("player2").value;
+    if (currentPlayerName == player1Name) {
+        currentPlayerName = player2Name;
+    }
+    else {
+        currentPlayerName = player1Name;
+    }
+    document.getElementById("current").innerText = currentPlayerName;
 }
 window.onload = function () {
     let newGameBtn = document.getElementById("new_game");
