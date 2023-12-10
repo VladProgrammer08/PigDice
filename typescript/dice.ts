@@ -86,11 +86,36 @@ function rollDie():void{
 }
 
 function holdDie():void{
+    alert("Next player turn");
+    let dieBox = 0;
+    (<HTMLInputElement>document.getElementById("die")).value = dieBox.toString();
     //get the current turn total
+    let currTotal = parseInt((<HTMLInputElement>document.getElementById("total")).value);
     //determine who the current player is
+    let currentPlayerName = (<HTMLElement>document.getElementById("current")).innerText;
+    let player1Name = (<HTMLInputElement>document.getElementById("player1")).value;
+    let player2Name = (<HTMLInputElement>document.getElementById("player2")).value;
     //add the current turn total to the player's total score
+    if (currentPlayerName == player1Name){
+        let score1 = parseInt((<HTMLInputElement>document.getElementById("score1")).value);
+        score1 += currTotal;
+        (<HTMLInputElement>document.getElementById("score1")).value = score1.toString();
+        if(score1 >= 100){
+                alert("Congratulation, " + currentPlayerName + " You are Winner!");        
+        }
+    }
+    else {
+        let score2 = parseInt((<HTMLInputElement>document.getElementById("score2")).value);
+        score2 += currTotal;
+        (<HTMLInputElement>document.getElementById("score2")).value = score2.toString();
+        if(score2 >= 100){
+            alert("Congratulation, " + currentPlayerName + " You are Winner!");        
+    }
+    }
 
     //reset the turn total to 0
+    currTotal = 0;
+    (<HTMLInputElement>document.getElementById("total")).value = currTotal.toString();
 
     //change players
     changePlayers();
