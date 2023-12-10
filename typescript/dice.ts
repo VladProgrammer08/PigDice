@@ -36,9 +36,16 @@ window.onload = function(){
 
 function createNewGame(){
     //set player 1 and player 2 scores to 0
-
+    (<HTMLInputElement>document.getElementById("score1")).value = "0";
+    (<HTMLInputElement>document.getElementById("score2")).value = "0";
     //verify each player has a name
+    let player1Name = (<HTMLInputElement>document.getElementById("player1")).value;
+    let player2Name = (<HTMLInputElement>document.getElementById("player2")).value;
     //if both players don't have a name display error
+    if (!player1Name || !player2Name) {
+        alert("Please enter names for both players!");
+        return;
+    }
 
     //if both players do have a name start the game!
     (<HTMLElement>document.getElementById("turn")).classList.add("open");
